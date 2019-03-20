@@ -1,0 +1,30 @@
+- name: UPDATE GITHUB ISSUE
+  hosts: localhost
+  connection: local
+  become: no
+  gather_facts: no
+  tasks:
+    - name: set datetime of local ansible control node
+      set_fact:
+        datetime: "{{ lookup('pipe','date +%Y-%m-%d-%H-%M') }}"
+
+    - name: post issue comment
+      uri:
+        url: "https://api.github.com/repos/network-automation/linklight/issues/207/comments"
+        method: POST
+        force_basic_auth: yes
+        user: "{{login_info.username}}"
+        password: "{{login_info.password}}"
+        validate_certs: False
+        body_format: json
+        body:
+          body: |-
+            AUTOMATED COMMENT BY ANSIBLE
+            ############################
+            updated at {{datetime}}
+
+            THIS WORKFLOW HAS FAILED
+
+            ![your job failed giphy animation](https://i.giphy.com/media/iJxHzcuNcCJXi/giphy.webp)
+        status_code: [200,201]
+      register: test
