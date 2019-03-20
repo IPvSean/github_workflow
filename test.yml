@@ -13,8 +13,8 @@
     #     url: "https://api.github.com/orgs/{{github}}/members"
     #     method: GET
     #     force_basic_auth: yes
-    #     user: "{{login_info.username}}"
-    #     password: "{{login_info.password}}"
+    #     user: "{{github_username}}"
+    #     password: "{{github_token}}"
     #     validate_certs: False
     #   register: memberspages
 
@@ -31,8 +31,8 @@
     #     url: "https://api.github.com/repos/network-automation/linklight/issues/207/comments"
     #     method: GET
     #     force_basic_auth: yes
-    #     user: "{{login_info.username}}"
-    #     password: "{{login_info.password}}"
+    #     user: "{{github_username}}"
+    #     password: "{{github_token}}"
     #     validate_certs: False
     #   register: grab_issue
     #
@@ -45,8 +45,8 @@
     #     url: "https://api.github.com/repos/network-automation/linklight/issues/207/comments"
     #     method: POST
     #     force_basic_auth: yes
-    #     user: "{{login_info.username}}"
-    #     password: "{{login_info.password}}"
+    #     user: "{{github_username}}"
+    #     password: "{{github_token}}"
     #     validate_certs: False
     #     body_format: json
     #     body:
@@ -64,8 +64,8 @@
         url: "https://api.github.com/repos/network-automation/linklight/issues/207/comments"
         method: POST
         force_basic_auth: yes
-        user: "{{login_info.username}}"
-        password: "{{login_info.password}}"
+        user: "{{github_username}}"
+        password: "{{github_token}}"
         validate_certs: False
         body_format: json
         body:

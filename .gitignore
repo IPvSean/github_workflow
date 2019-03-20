@@ -1,3 +1,4 @@
 
 .DS_Store
 github_issue/group_vars/all.yml
+group_vars/all.yml
